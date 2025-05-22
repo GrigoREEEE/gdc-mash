@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4cjxrs4dckv5"]
+
+[ext_resource type="PackedScene" uid="uid://d0xtn8kcdgppx" path="res://player.tscn" id="1_u52ul"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 649, 0, 487, 272, 487, 385, 486, 587, 486, 615, 485, 668, 482, 683, 481, 778, 481, 1101, 645, 1150, 645, 1151, 679, -2, 680)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+color = Color(1, 0.501961, 1, 1)
+polygon = PackedVector2Array(0, 649, 0, 487, 272, 487, 385, 486, 587, 486, 611, 485, 653, 483, 683, 481, 778, 481, 1101, 645, 1150, 645, 1151, 679, -2, 680)
+
+[node name="Player" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(184, 437)
