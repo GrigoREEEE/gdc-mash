@@ -21,7 +21,7 @@ func initialize(base_speed: float):
 	acceleration_rate = (base_max_speed * sprint_speed_multiplier - base_max_speed) / sprint_acceleration_time
 	deceleration_rate = (base_max_speed * sprint_speed_multiplier - base_max_speed) / sprint_deceleration_time
 
-func update(is_sprinting: bool, delta: float):
+func update(char: CharacterBody2D, is_sprinting: bool, delta: float):
 	# Update target speed
 	if is_sprinting:
 		target_max_speed = base_max_speed * sprint_speed_multiplier
@@ -39,3 +39,12 @@ func update(is_sprinting: bool, delta: float):
 func reset():
 	current_max_speed = base_max_speed
 	target_max_speed = base_max_speed
+	
+func tilt(char, input_direction, is_sprinting):
+	if is_sprinting:
+		if input_direction > 0:
+			char.get_node("WeepingAngelSmall").rotation = PI/6
+		elif input_direction < 0:
+			char.get_node("WeepingAngelSmall").rotation = -PI/6
+	else:
+		char.get_node("WeepingAngelSmall").rotation = 0

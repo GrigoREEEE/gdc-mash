@@ -28,17 +28,16 @@ func _ready():
 func _physics_process(delta):
 	var input_direction = Input.get_axis("move_left", "move_right")
 	var is_sprinting = Input.is_action_pressed("sprint")
-	
 	# Update systems first
-	sprint_system.update(is_sprinting, delta)
-	
+	sprint_system.update(self, is_sprinting, delta)
+	sprint_system.tilt(self, input_direction, is_sprinting)
 	# Handle physics in order
 	apply_gravity(delta)
 	handle_jump()  # Handle jump before movement
 	handle_movement(input_direction, delta)
-	
+
 	self.move_and_slide()
-	update_animations(input_direction)
+	update_animations(input_direction, is_sprinting)
 
 func apply_gravity(delta):
 	if not self.is_on_floor():
@@ -69,7 +68,7 @@ func can_jump():
 	# Can jump if either:
 	# 1. On ground with jump buffer, or
 	# 2. In coyote time with jump buffer
-	return (is_on_floor() or coyote_timer > 0) and jump_buffer_timer > 0
+	return (self.is_on_floor() or coyote_timer > 0) and jump_buffer_timer > 0
 
 func perform_jump():
 	velocity.y = -jump_force
@@ -89,6 +88,6 @@ func handle_movement(input_direction, delta):
 		var current_friction = friction if is_on_floor() else air_resistance
 		velocity.x = move_toward(velocity.x, 0, current_friction * delta)
 
-func update_animations(input_direction):
+func update_animations(input_direction, is_sprinting):
 	if input_direction != 0:
 		$WeepingAngelSmall.flip_h = input_direction > 0
