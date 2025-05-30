@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cifry2kppufd5"
-path="res://.godot/imported/run1.png-4b4d80a49478b77c67946e48cf061424.ctex"
+path="res://.godot/imported/run1.png-17413d8b90abe658f4ab2e801cdcaf69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/run/run1.png"
-dest_files=["res://.godot/imported/run1.png-4b4d80a49478b77c67946e48cf061424.ctex"]
+source_file="res://Assets/Characters/BlackSilhouette/run/run1.png"
+dest_files=["res://.godot/imported/run1.png-17413d8b90abe658f4ab2e801cdcaf69.ctex"]
 
 [params]
 

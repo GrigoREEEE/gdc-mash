@@ -15,4 +15,5 @@ polygon = PackedVector2Array(0, 649, 0, 487, 272, 487, 385, 486, 587, 486, 611, 
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 position = Vector2(184, 437)
+scale = Vector2(10, 10)
 acceleration = 3000.0
