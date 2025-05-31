@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Character
 
 # Movement parameters
 @export var max_speed := 300.0
@@ -17,6 +17,7 @@ extends CharacterBody2D
 var coyote_timer := 0.0
 var jump_buffer_timer := 0.0
 var is_jumping := false
+var sprite: AnimatedSprite2D
 
 # Sprint system
 @onready var sprint_system := SprintSystem.new(max_speed)
@@ -24,6 +25,8 @@ var is_jumping := false
 func _ready():
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity", gravity)
 	sprint_system.initialize(max_speed)
+	var sprite_decorator: AnimatedSpriteDecorator = AnimatedSpriteDecorator.new()
+	sprite = sprite_decorator.decorate(self)
 
 func _physics_process(delta):
 	var input_direction = Input.get_axis("move_left", "move_right")
@@ -89,5 +92,12 @@ func handle_movement(input_direction, delta):
 		velocity.x = move_toward(velocity.x, 0, current_friction * delta)
 
 func update_animations(input_direction, is_sprinting):
-	if input_direction != 0:
-		$WeepingAngelSmall.flip_h = input_direction > 0
+	if is_jumping == true:
+		sprite.play("jump")
+		if input_direction != 0:
+			sprite.flip_h = input_direction < 0
+	elif input_direction != 0:
+		sprite.play("run")
+		sprite.flip_h = input_direction < 0
+	else:
+		sprite.play("idle")

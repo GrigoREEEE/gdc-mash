@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsiju0cnpyx3o"
-path="res://.godot/imported/run4.png-e005cb57b49330e521f38be4002fb369.ctex"
+path="res://.godot/imported/run4.png-21c50c8201cbff0f5f154ae66d0c55b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/run/run4.png"
-dest_files=["res://.godot/imported/run4.png-e005cb57b49330e521f38be4002fb369.ctex"]
+source_file="res://Assets/Characters/BlackSilhouette/run/run4.png"
+dest_files=["res://.godot/imported/run4.png-21c50c8201cbff0f5f154ae66d0c55b5.ctex"]
 
 [params]
 
